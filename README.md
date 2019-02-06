@@ -42,7 +42,7 @@ table
         td '9'
 ```
 
-You see? Now you don't have to type the same tags twice (like `<table>` and `</table>`): now you can use Untitled Markup Language by Acapla Studios!
+You see? Now you don't have to type the same tags twice (like `<table>` and `</table>`) or useless symbols like '<', '>' or '/': now you can use Untitled Markup Language by Acapla Studios!
 
 
 By the way, write us if you have any ideas about the naming ;)
