@@ -109,6 +109,12 @@ def lexer(code):
                     string = False
                     tokenize_text(buffer)
                     buffer = ''
+                elif line[i] == '\\':
+                        i += 1
+                        c = line[i]
+                        if c == 'n':
+                            c = '<br>'
+                        buffer += c
                 else:
                     buffer += line[i]
             elif line[i] in quotes:
