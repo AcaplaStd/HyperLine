@@ -1,5 +1,4 @@
-# Markup Languange by Acapla Studios
-## (untitled yet)
+# WML
 
 Don't you think that `title 'My Website'` looks prettier and easier to print than `<title>My Website</title>`? We do.
 
