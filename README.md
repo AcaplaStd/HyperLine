@@ -1,8 +1,8 @@
-# WML
+# HyperLine
 
 Don't you think that `title 'My Website'` looks prettier and easier to print than `<title>My Website</title>`? We do.
 
-Introducing Markup Language by Acapla - language that makes creating webpages much easier than HTML.
+Introducing HyperLine Markup Language by AcaplaStd - language that makes creating webpages much easier than HTML.
 
 In example, this HTML code:
 ```
@@ -24,7 +24,7 @@ In example, this HTML code:
     </tr>
 </table>
 ```
-has the same effect like this UML code:
+has the same effect like this HyperLine code:
 ```
 table
     tr
@@ -41,7 +41,6 @@ table
         td '9'
 ```
 
-You see? Now you don't have to type the same tags twice (like `<table>` and `</table>`) or useless symbols like '<', '>' or '/': now you can use Untitled Markup Language by Acapla Studios!
+You see? Now you don't have to type the same tags twice (like `<table>` and `</table>`) or useless symbols like '<', '>' or '/': now you can use HyperLine!
 
-
-By the way, write us if you have any ideas about the naming ;)
+Be waiting for stable versions - be waiting for the revolution...
