@@ -10,17 +10,11 @@ import re
 
 
 def is_word(s):
-    if not s[0].isalpha():
-        return False
-    if not s[1:].isalnum():
-        return False
-    return True
+    return True if s[0].isalpha() and s[1:].isalnum() else False
 
 
 def ERROR(code: int, s: str):
-    print()
-    print('ERROR ', code, ': ', s, sep='')
-    print()
+    print(f'\nERROR {code}: {s}\n')
     exit(code)
 
 
@@ -43,7 +37,7 @@ class Token:
 tokens = []
 single_tags = ['area', 'base', 'basefont', 'bgsound', 'br', 'col', 'command', 'embed', 'hr', 'img',
                'input', 'isindex', 'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr']  # Незакрывающиеся теги
-tags = ['!--...--', '!DOCTYPE', 'a', 'abbr', 'address', 'article', 'aside', 'audio', 'b', 'bdi', 'bdo', 'blockquote',
+paired_tags = ['!DOCTYPE', 'a', 'abbr', 'address', 'article', 'aside', 'audio', 'b', 'bdi', 'bdo', 'blockquote',
         'body', 'button', 'canvas', 'caption', 'cite', 'code', 'colgroup', 'data', 'datalist', 'dd', 'del', 'details',
         'dfn', 'dialog', 'div', 'dl', 'dt', 'em', 'fieldset', 'figcaption', 'figure', 'footer', 'form', 'h1', 'h2',
         'h3', 'h4', 'h5', 'h6', 'head', 'header', 'html', 'i', 'iframe', 'ins', 'kbd', 'label', 'legend', 'li', 'main',
@@ -53,7 +47,7 @@ tags = ['!--...--', '!DOCTYPE', 'a', 'abbr', 'address', 'article', 'aside', 'aud
         'th', 'thead', 'time', 'title', 'tr', 'u', 'ul', 'var', 'video']
 quotes = "'" + '"'
 h_sep = '\t'  # Разделитель иерархии
-spaces = ' \t\v\r\f'
+spaces = ' \t\n\r\x0b\x0c'
 attr = False
 
 
@@ -61,20 +55,19 @@ def check(text):
     global tokens
     global attr
 
-    if len(text) == 0:
-        pass
-    elif text in tags:
-        is_attr_needed()
-        tokens.append(Token(text, True))
-    elif text in single_tags:
-        is_attr_needed()
-        tokens.append(Token(text, False))
-    elif text[-1] == '=':
-        if is_word(text[:-1]):
-            tokens.append(Token('attr_name', text[:-1]))
-            attr = True
-        else:
-            ERROR(102, 'Illegal attribute: ' + text)
+    if text:
+        elif text in paired_tags:
+            is_attr_needed()
+            tokens.append(Token(text, True))
+        elif text in single_tags:
+            is_attr_needed()
+            tokens.append(Token(text, False))
+        elif text[-1] == '=':
+            if is_word(text[:-1]):
+                tokens.append(Token('attr_name', text[:-1]))
+                attr = True
+            else:
+                ERROR(102, 'Illegal attribute: ' + text)
 
 
 def tokenize_text(text):
