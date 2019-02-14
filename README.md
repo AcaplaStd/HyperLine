@@ -1,8 +1,10 @@
 # HyperLine
+## Minimal styled markup language without odd details
+
 
 Don't you think that `title 'My Website'` looks prettier and easier to print than `<title>My Website</title>`? We do.
 
-Introducing HyperLine Markup Language by AcaplaStd - language that makes creating webpages much easier than HTML.
+Introducing HyperLine Markup Language - language that makes creating webpages much easier than HTML.
 
 In example, this HTML code:
 ```
