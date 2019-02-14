@@ -56,7 +56,7 @@ def check(text):
     global attr
 
     if text:
-        elif text in paired_tags:
+        if text in paired_tags:
             is_attr_needed()
             tokens.append(Token(text, True))
         elif text in single_tags:
