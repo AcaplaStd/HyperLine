@@ -5,8 +5,7 @@
 # - научиться разделять теги в head от тегов в body, а то ему грустно
 # - научиться иметь строку внутри команду (в  div class='main-div' 'hi'  не надо определять 'hi' как аргумент для тега)
 
-from sys import stdin
-import re
+# from sys import stdin
 
 
 def is_word(s):
@@ -54,20 +53,19 @@ attr = False
 def check(text):
     global tokens
     global attr
-
-    if text:
-        if text in paired_tags:
-            is_attr_needed()
-            tokens.append(Token(text, True))
-        elif text in single_tags:
-            is_attr_needed()
-            tokens.append(Token(text, False))
-        elif text[-1] == '=':
-            if is_word(text[:-1]):
-                tokens.append(Token('attr_name', text[:-1]))
-                attr = True
-            else:
-                ERROR(102, 'Illegal attribute: ' + text)
+    
+    if text in paired_tags:
+        is_attr_needed()
+        tokens.append(Token(text, True))
+    elif text in single_tags:
+        is_attr_needed()
+        tokens.append(Token(text, False))
+    elif text.endswith('='):
+        if is_word(text[:-1]):
+            tokens.append(Token('attr_name', text[:-1]))
+            attr = True
+        else:
+            ERROR(102, 'Illegal attribute: ' + text)
 
 
 def tokenize_text(text):
@@ -131,7 +129,7 @@ def lexer(code):
 
 if __name__ == '__main__':
     # code = list(map(lambda x: x[:-1], stdin))
-    code = ['@']
+    code = ['HyperLine the best']
     while code[-1] != '':
         code.append(input())
     code = code[1:-1]
