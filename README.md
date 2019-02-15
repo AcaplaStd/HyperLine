@@ -4,7 +4,7 @@
 
 Don't you think that `title 'My Website'` looks prettier and easier to print than `<title>My Website</title>`? We do.
 
-Introducing HyperLine Markup Language - language that makes creating webpages much easier than HTML.
+Introducing HyperLine Markup Language - language that makes creating webpages much easier and faster than HTML.
 
 In example, this HTML code:
 ```
